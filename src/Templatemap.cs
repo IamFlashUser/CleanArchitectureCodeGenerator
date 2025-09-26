@@ -678,7 +678,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "bool":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudCheckBox Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" ></MudCheckBox>\r\n");
+						output.Append($"        <MudCheckBox Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Color=\"Color.Primary\" ></MudCheckBox>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
