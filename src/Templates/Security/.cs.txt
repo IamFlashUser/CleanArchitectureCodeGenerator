@@ -21,6 +21,8 @@ public static partial class Permissions
         public const string View = "Permissions.{nameofPlural}.View";
         [Description("Allows creating {itemnamelowercase} records.")]
         public const string Create = "Permissions.{nameofPlural}.Create";
+        [Description("Allows cloning existing {itemnamelowercase} records.")]
+        public const string Clone = "Permissions.{nameofPlural}.Clone";
         [Description("Allows modifying existing {itemnamelowercase} details.")]
         public const string Edit = "Permissions.{nameofPlural}.Edit";
         [Description("Allows deleting {itemnamelowercase} records.")]
@@ -40,6 +42,7 @@ public class {nameofPlural}AccessRights
 {
     public bool View { get; set; }
     public bool Create { get; set; }
+    public bool Clone { get; set; }
     public bool Edit { get; set; }
     public bool Delete { get; set; }
     public bool Print { get; set; }
