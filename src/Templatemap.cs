@@ -710,7 +710,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "system.datetime?":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudDatePicker Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Date=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required!\"]\"></MudDatePicker>\r\n");
+						output.Append($"        <MudDatePicker ShowToolbar=\"false\" Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Date=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required!\"]\"></MudDatePicker>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;

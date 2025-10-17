@@ -13,9 +13,9 @@
         </MudForm>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">@ConstantString.Cancel</MudButton>
-        <MudLoadingButton Loading="@_savingnew" OnClick="OnSaveAndNew">@ConstantString.SaveAndNew</MudLoadingButton>
-        <MudLoadingButton Loading="@_saving"  OnClick="OnSubmit">@ConstantString.Save</MudLoadingButton>
+        <MudButton OnClick="Cancel">@AppStrings.Cancel</MudButton>
+        <MudLoadingButton Loading="@_savingnew" OnClick="OnSaveAndNew">@AppStrings.SaveAndNew</MudLoadingButton>
+        <MudLoadingButton Loading="@_saving"  OnClick="OnSubmit">@AppStrings.Save</MudLoadingButton>
     </DialogActions>
 </MudDialog>
 
@@ -38,7 +38,7 @@
             result.Match(data =>
             {
                 MudDialog.Close(DialogResult.Ok(true));
-                Snackbar.Add(ConstantString.SaveSuccess, MudBlazor.Severity.Info);
+                Snackbar.Add(AppStrings.SaveSuccess, MudBlazor.Severity.Info);
             }, errors =>
             {
                 Snackbar.Add(errors, MudBlazor.Severity.Error);
@@ -60,7 +60,7 @@
             var result = await Mediator.Send(_model);
             await result.MatchAsync(async data =>
             {
-                Snackbar.Add(ConstantString.SaveSuccess, MudBlazor.Severity.Info);
+                Snackbar.Add(AppStrings.SaveSuccess, MudBlazor.Severity.Info);
                 await Task.Delay(300);
                 _model = new AddEdit{itemname}Command() { };
             }, errors =>

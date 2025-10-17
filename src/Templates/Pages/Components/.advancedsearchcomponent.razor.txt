@@ -2,7 +2,7 @@
 @inject IStringLocalizer<{nameofPlural}> L
 
 <MudExpansionPanel @bind-Expanded="_advancedSearchExpanded"
-                   Class="pa-2 mb-3" Text="@ConstantString.AdvancedSearch">
+                   Class="pa-2 mb-3" Text="@AppStrings.AdvancedSearch">
     <MudGrid>
         <MudItem xs="12" sm="6" md="4">
             <!-- Add advanced search query fields here -->
