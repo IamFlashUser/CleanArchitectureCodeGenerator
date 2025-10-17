@@ -216,7 +216,10 @@
     {
         return DialogServiceHelper.ShowFormDialogAsync<{itemname}FormDialog, AddEdit{itemname}Command>(
             title,
-            command,
+            new DialogParameters<{itemname}FormDialog>()
+			{
+				{x => x._model, command }
+			},
             async () =>
             {
                 await _{nameofplurallowercase}Grid.ReloadServerData();
