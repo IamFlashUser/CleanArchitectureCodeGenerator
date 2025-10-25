@@ -28,7 +28,7 @@
         </MudForm>
         </MudCardContent>
         <MudCardActions Class="d-flex justify-end gap-2">
-                    <MudLoadingButton Color="Color.Primary" DropShadow="false" Loading="@_saving" OnClick="OnSubmit">@AppStrings.Save</MudLoadingButton>
+                    <MudLoadingButton Color="Color.Primary" Variant="Variant.Outlined" Loading="@_saving" OnClick="OnSubmit">@AppStrings.Save</MudLoadingButton>
         </MudCardActions>
         </MudCard>
     }

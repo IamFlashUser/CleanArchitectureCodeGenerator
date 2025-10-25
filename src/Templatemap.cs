@@ -575,17 +575,34 @@ namespace CleanArchitecture.CodeGenerator
 				if (property.Name == PRIMARYKEY) continue;
 				if (property.Type.IsKnownType)
 				{
-					output.Append("                ");
-					output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\" />\r\n");
+					if (property.Type.CodeName.StartsWith("bool"))
+					{
+						output.Append("                ");
+						output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\">\r\n");
+						output.Append("                <CellTemplate>\r\n");
+						output.Append($"						@if (context.Item.{property.Name})\r\n");
+						output.Append($"					    {{ \r\n <MudIcon Icon=\"@Icons.Material.Filled.CheckCircle\" Color=\"Color.Success\" />  \r\n }}");
+						output.Append($"					    else");
+						output.Append($"					    {{ \r\n <MudIcon Icon=\"@Icons.Material.Filled.Cancel\" Color=\"Color.Default\" /> \r\n }}");
+						output.Append("                </CellTemplate>\r\n");
+						output.Append("                ");
+						output.Append($"</PropertyColumn>\r\n");
+					}
+					else
+					{
+						output.Append("                ");
+						output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\" />\r\n");
+					}
 				}
 				else if (property.Type.CodeName.StartsWith("System.DateTime")) 
 			    {
-					output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\" />\r\n");
+					output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\" Format=\"d\"  />\r\n");
 				}
 				else if (property.Type.CodeName.StartsWith("System.TimeSpan"))
 				{
 					output.Append($"<PropertyColumn Property=\"x => x.{property.Name}\" Title=\"@L[_{name.ToLower()}Dto.GetMemberDescription(x=>x.{property.Name})]\" />\r\n");
 				}
+				
 				else if (objectlist != null)
 				{
 					var relatedObject = objectlist.FirstOrDefault(x => x.FullName.Equals(property.Type.CodeName) && x.IsEnum);
