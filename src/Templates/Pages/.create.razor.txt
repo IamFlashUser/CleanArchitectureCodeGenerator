@@ -37,7 +37,7 @@
     private Create{itemname}Command _model = new();
     protected override Task OnInitializedAsync()
     {
-        Title = L["New {itemname}"];
+        Title = $"{ApplicationSettings.AppName} - { L["New {itemname}"] }";
         _breadcrumbItems = new List<BreadcrumbItem>
         {
             new BreadcrumbItem(L["Home"], href: "/"),

@@ -45,7 +45,7 @@
     private Update{itemname}Command? _model;
     protected override async Task OnInitializedAsync()
     {
-        Title = L["Edit {itemname}"];
+        Title =  $"{ApplicationSettings.AppName} - { L["Edit {itemname}"] }";
         _breadcrumbItems = new List<BreadcrumbItem>
         {
             new BreadcrumbItem(L["Home"], href: "/"),

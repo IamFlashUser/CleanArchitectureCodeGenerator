@@ -35,7 +35,7 @@
     private {itemname}Dto? _model;
     protected override async Task OnInitializedAsync()
     {
-        Title = L["{itemname}"];
+        Title = $"{ApplicationSettings.AppName} - { L["{itemname}"] }";
         _breadcrumbItems = new List<BreadcrumbItem>
         {
             new BreadcrumbItem(L["Home"], href: "/"),
