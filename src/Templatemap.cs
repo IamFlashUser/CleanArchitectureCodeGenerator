@@ -680,14 +680,14 @@ namespace CleanArchitecture.CodeGenerator
 					case "string" when property.Name.Equals("Name", StringComparison.OrdinalIgnoreCase):
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"true\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudTextField>\r\n");
+						output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"true\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudTextField>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
 					case "string" when property.Name.Equals("Description", StringComparison.OrdinalIgnoreCase):
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\"  For=\"@(() => _model.{property.Name})\" @bind-Value=\"_model.{property.Name}\"></MudTextField>\r\n");
+						output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\"  For=\"@(() => _model.{property.Name})\" @bind-Value=\"_model.{property.Name}\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()} number\"]\"></MudTextField>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -703,7 +703,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "int":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudNumericField >\r\n");
+						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudNumericField >\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -711,7 +711,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "decimal":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0.00m\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudNumericField >\r\n");
+						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0.00m\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudNumericField >\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -719,7 +719,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "double":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0.00\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudNumericField >\r\n");
+						output.Append($"        <MudNumericField  Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Min=\"0.00\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudNumericField >\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -727,7 +727,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "system.datetime?":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudDatePicker ShowToolbar=\"false\" Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Date=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudDatePicker>\r\n");
+						output.Append($"        <MudDatePicker ShowToolbar=\"false\" Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Date=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudDatePicker>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -735,7 +735,7 @@ namespace CleanArchitecture.CodeGenerator
 					case "system.timespan?":
 						output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 						output.Append("                ");
-						output.Append($"        <MudTimePicker Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Time=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudDatePicker>\r\n");
+						output.Append($"        <MudTimePicker Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Time=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudDatePicker>\r\n");
 						output.Append("                ");
 						output.Append($"</MudItem> \r\n");
 						break;
@@ -744,7 +744,7 @@ namespace CleanArchitecture.CodeGenerator
 						{
 							output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 							output.Append("                ");
-							output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudTextField>\r\n");
+							output.Append($"        <MudTextField Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudTextField>\r\n");
 							output.Append("                ");
 							output.Append($"</MudItem> \r\n");
 						}
@@ -756,7 +756,7 @@ namespace CleanArchitecture.CodeGenerator
 								var enumType = property.Type.CodeName.Split('.').Last();
 								output.Append($"<MudItem xs=\"12\" md=\"6\"> \r\n");
 								output.Append("                ");
-								output.Append($"        <MudEnumSelect TEnum=\"Nullable<{enumType}>\" Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\"></MudEnumSelect>\r\n");
+								output.Append($"        <MudEnumSelect TEnum=\"Nullable<{enumType}>\" Label=\"@L[_model.GetMemberDescription(x=>x.{property.Name})]\" @bind-Value=\"_model.{property.Name}\" For=\"@(() => _model.{property.Name})\" Required=\"false\" RequiredError=\"@L[\"{splitCamelCase(property.Name).ToLower()} is required.\"]\" Placeholder=\"@L[\"Enter {splitCamelCase(property.Name).ToLower()}\"]\"></MudEnumSelect>\r\n");
 								output.Append("                ");
 								output.Append($"</MudItem> \r\n");
 							}
